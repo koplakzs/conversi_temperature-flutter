@@ -17,7 +17,9 @@ class _InputTemperatureState extends State<InputTemperature> {
     'Reamur',
     'Kelvin'
   ];
-  String selectItem = list.first;
+
+  String selectItem = 'Celsius';
+  String selectSymbol = 'C';
 
   @override
   Widget build(BuildContext context) {
@@ -27,28 +29,41 @@ class _InputTemperatureState extends State<InputTemperature> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            child: DropdownButton(
-              value: selectItem,
-              items: list.map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-              onChanged: (String? newItem) {
-                setState(() {
-                  selectItem = newItem!;
-                });
-              },
-              underline: Container(),
-              alignment: Alignment.center,
-              icon: Container(),
-              style: TextStyle(
-                  color: MyTheme.blue,
-                  fontFamily: 'BreeSerif-Regular',
-                  fontSize: 45),
-            ),
+          DropdownButton(
+            value: selectItem,
+            items: list.map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+            onChanged: (String? newItem) {
+              setState(() {
+                selectItem = newItem!;
+              });
+              switch (selectItem) {
+                case 'Fanrenheit':
+                  selectSymbol = 'F';
+                  break;
+                case 'Reamur':
+                  selectSymbol = 'R';
+                  break;
+                case 'Kelvin':
+                  selectSymbol = 'K';
+                  break;
+                default:
+                  selectSymbol = 'C';
+                  break;
+              }
+            },
+            underline: Container(),
+            alignment: Alignment.center,
+            icon: Container(),
+            style: TextStyle(
+                color: MyTheme.blue,
+                fontFamily: 'BreeSerif-Regular',
+                fontSize: 45),
+            elevation: 5,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -58,7 +73,7 @@ class _InputTemperatureState extends State<InputTemperature> {
                       color: MyTheme.blue,
                       fontFamily: 'BreeSerif-Regular',
                       fontSize: 100)),
-              Text('\u00B0K',
+              Text('\u00B0$selectSymbol',
                   style: TextStyle(
                       color: MyTheme.blue,
                       fontFamily: 'BreeSerif-Regular',

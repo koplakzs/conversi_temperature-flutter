@@ -63,7 +63,8 @@ class _InputTemperatureState extends State<InputTemperature> {
                 color: MyTheme.blue,
                 fontFamily: 'BreeSerif-Regular',
                 fontSize: 45),
-            elevation: 5,
+            elevation: 2,
+            dropdownColor: MyTheme.white,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

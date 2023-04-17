@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:temperature_conversi/widget/button_conversi.dart';
 import 'package:temperature_conversi/widget/input_temperatur.dart';
 import 'package:temperature_conversi/widget/result_temperature.dart';
 
@@ -16,8 +17,16 @@ class _ConversiState extends State<Conversi> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: Column(
-          children: const [InputTemperature(), ResultTemperature()],
+        child: Stack(
+          children: [
+            Column(
+              children: const [InputTemperature(), ResultTemperature()],
+            ),
+            const Align(
+              alignment: Alignment.center,
+              child: ButtonConversi(),
+            )
+          ],
         ),
       ),
     );

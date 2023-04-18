@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:temperature_conversi/widget/my_theme.dart';
 
 class ButtonConversi extends StatelessWidget {

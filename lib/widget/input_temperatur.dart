@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:temperature_conversi/screen/input_value.dart';
 import 'package:temperature_conversi/widget/my_theme.dart';
 
 class InputTemperature extends StatefulWidget {
@@ -69,11 +70,17 @@ class _InputTemperatureState extends State<InputTemperature> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('274',
-                  style: TextStyle(
-                      color: MyTheme.blue,
-                      fontFamily: 'BreeSerif-Regular',
-                      fontSize: 100)),
+              GestureDetector(
+                child: Text('274',
+                    style: TextStyle(
+                        color: MyTheme.blue,
+                        fontFamily: 'BreeSerif-Regular',
+                        fontSize: 100)),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => InputValue()));
+                },
+              ),
               Text('\u00B0$selectSymbol',
                   style: TextStyle(
                       color: MyTheme.blue,

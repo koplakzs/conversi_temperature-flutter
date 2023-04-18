@@ -17,7 +17,7 @@ class _KeyboardState extends State<Keyboard> {
   Widget build(BuildContext context) {
     return Expanded(
         child: Container(
-            color: MyTheme.blue,
+            color: MyTheme.white,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -27,17 +27,17 @@ class _KeyboardState extends State<Keyboard> {
                     Button(
                         onPress: widget.onPress,
                         text: '7',
-                        textColor: MyTheme.white,
+                        textColor: MyTheme.blue,
                         backgroundColor: MyTheme.otherBlue),
                     Button(
                         onPress: widget.onPress,
                         text: '8',
-                        textColor: MyTheme.white,
+                        textColor: MyTheme.blue,
                         backgroundColor: MyTheme.otherBlue),
                     Button(
                         onPress: widget.onPress,
                         text: '9',
-                        textColor: MyTheme.white,
+                        textColor: MyTheme.blue,
                         backgroundColor: MyTheme.otherBlue)
                   ],
                 ),
@@ -47,17 +47,17 @@ class _KeyboardState extends State<Keyboard> {
                     Button(
                         onPress: widget.onPress,
                         text: '4',
-                        textColor: MyTheme.white,
+                        textColor: MyTheme.blue,
                         backgroundColor: MyTheme.otherBlue),
                     Button(
                         onPress: widget.onPress,
                         text: '5',
-                        textColor: MyTheme.white,
+                        textColor: MyTheme.blue,
                         backgroundColor: MyTheme.otherBlue),
                     Button(
                         onPress: widget.onPress,
                         text: '6',
-                        textColor: MyTheme.white,
+                        textColor: MyTheme.blue,
                         backgroundColor: MyTheme.otherBlue)
                   ],
                 ),
@@ -67,17 +67,17 @@ class _KeyboardState extends State<Keyboard> {
                     Button(
                         onPress: widget.onPress,
                         text: '1',
-                        textColor: MyTheme.white,
+                        textColor: MyTheme.blue,
                         backgroundColor: MyTheme.otherBlue),
                     Button(
                         onPress: widget.onPress,
                         text: '2',
-                        textColor: MyTheme.white,
+                        textColor: MyTheme.blue,
                         backgroundColor: MyTheme.otherBlue),
                     Button(
                         onPress: widget.onPress,
                         text: '3',
-                        textColor: MyTheme.white,
+                        textColor: MyTheme.blue,
                         backgroundColor: MyTheme.otherBlue)
                   ],
                 ),
@@ -87,18 +87,18 @@ class _KeyboardState extends State<Keyboard> {
                     Button(
                         onPress: widget.onPress,
                         text: '.',
-                        textColor: MyTheme.white,
+                        textColor: MyTheme.blue,
                         backgroundColor: MyTheme.otherBlue),
                     Button(
                         onPress: widget.onPress,
                         text: '0',
-                        textColor: MyTheme.white,
+                        textColor: MyTheme.blue,
                         backgroundColor: MyTheme.otherBlue),
                     Button(
                         onPress: widget.onPress,
                         icons: Icons.done,
                         textColor: MyTheme.white,
-                        backgroundColor: MyTheme.otherBlue)
+                        backgroundColor: MyTheme.blue)
                   ],
                 )
               ],

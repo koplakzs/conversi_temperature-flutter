@@ -26,7 +26,7 @@ class Button extends StatelessWidget {
           backgroundColor: backgroundColor,
         ),
         // shadowColor: AppColor.buttonEqual),
-        child: text != null
+        child: icons == null
             ? Text(
                 text!.toString(),
                 textAlign: TextAlign.center,

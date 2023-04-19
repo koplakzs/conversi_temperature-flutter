@@ -97,6 +97,7 @@ class _KeyboardState extends State<Keyboard> {
                     Button(
                         onPress: widget.onPress,
                         icons: Icons.done,
+                        text: 'done',
                         textColor: MyTheme.white,
                         backgroundColor: MyTheme.blue)
                   ],

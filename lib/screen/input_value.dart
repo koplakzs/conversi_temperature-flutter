@@ -20,7 +20,12 @@ class _InputValueState extends State<InputValue> {
       body: Container(
         color: MyTheme.white,
         child: Column(
-          children: [Display(), Keyboard(onPress: (String value) => {})],
+          children: [
+            Display(
+              text: '1`2312',
+            ),
+            Keyboard(onPress: (String value) => {})
+          ],
         ),
       ),
     );

@@ -21,6 +21,16 @@ class _InputTemperatureState extends State<InputTemperature> {
 
   String selectItem = 'Celsius';
   String selectSymbol = 'C';
+  String text = '0';
+
+  void _awaitReturnValueFromInputValue(BuildContext context) async {
+    final result = await Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const InputValue()));
+
+    setState(() {
+      text = result;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,14 +81,13 @@ class _InputTemperatureState extends State<InputTemperature> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GestureDetector(
-                child: Text('274',
+                child: Text(text,
                     style: TextStyle(
                         color: MyTheme.blue,
                         fontFamily: 'BreeSerif-Regular',
                         fontSize: 100)),
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => InputValue()));
+                  _awaitReturnValueFromInputValue(context);
                 },
               ),
               Text('\u00B0$selectSymbol',

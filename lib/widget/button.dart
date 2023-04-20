@@ -5,10 +5,13 @@ class Button extends StatelessWidget {
   final Color textColor, backgroundColor;
   final String? text;
   final IconData? icons;
-  final void Function(String) onPress;
+  final void Function(String)? onPress;
+  final void Function(BuildContext)? onDone;
+
   const Button(
       {Key? key,
-      required this.onPress,
+      this.onPress,
+      this.onDone,
       this.text,
       this.icons,
       required this.textColor,
@@ -18,7 +21,8 @@ class Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: () => onPress(text.toString()),
+        onPressed: () =>
+            text != 'done' ? onPress!(text.toString()) : onDone!(context),
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.all(16),
           shape:

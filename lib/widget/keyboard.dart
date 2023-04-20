@@ -5,8 +5,10 @@ import 'package:temperature_conversi/widget/button.dart';
 import 'package:temperature_conversi/widget/my_theme.dart';
 
 class Keyboard extends StatefulWidget {
-  final void Function(String) onPress;
-  const Keyboard({Key? key, required this.onPress}) : super(key: key);
+  final void Function(String)? onPress;
+  final void Function(BuildContext)? onDone;
+
+  const Keyboard({Key? key, this.onPress, this.onDone}) : super(key: key);
 
   @override
   State<Keyboard> createState() => _KeyboardState();
@@ -95,7 +97,7 @@ class _KeyboardState extends State<Keyboard> {
                         textColor: MyTheme.blue,
                         backgroundColor: MyTheme.otherBlue),
                     Button(
-                        onPress: widget.onPress,
+                        onDone: widget.onDone,
                         icons: Icons.done,
                         text: 'done',
                         textColor: MyTheme.white,

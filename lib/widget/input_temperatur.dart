@@ -5,7 +5,11 @@ import 'package:temperature_conversi/screen/input_value.dart';
 import 'package:temperature_conversi/widget/my_theme.dart';
 
 class InputTemperature extends StatefulWidget {
-  const InputTemperature({super.key});
+  final String text;
+  final void Function(BuildContext) awaitReturn;
+  const InputTemperature(
+      {Key? key, required this.text, required this.awaitReturn})
+      : super(key: key);
 
   @override
   State<InputTemperature> createState() => _InputTemperatureState();
@@ -21,16 +25,6 @@ class _InputTemperatureState extends State<InputTemperature> {
 
   String selectItem = 'Celsius';
   String selectSymbol = 'C';
-  String text = '0';
-
-  void _awaitReturnValueFromInputValue(BuildContext context) async {
-    final result = await Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const InputValue()));
-
-    setState(() {
-      text = result;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +64,7 @@ class _InputTemperatureState extends State<InputTemperature> {
             underline: Container(),
             alignment: Alignment.center,
             icon: Container(),
-            style: TextStyle(
+            style: const TextStyle(
                 color: MyTheme.blue,
                 fontFamily: 'BreeSerif-Regular',
                 fontSize: 45),
@@ -81,17 +75,17 @@ class _InputTemperatureState extends State<InputTemperature> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GestureDetector(
-                child: Text(text,
-                    style: TextStyle(
+                child: Text(widget.text,
+                    style: const TextStyle(
                         color: MyTheme.blue,
                         fontFamily: 'BreeSerif-Regular',
                         fontSize: 100)),
                 onTap: () {
-                  _awaitReturnValueFromInputValue(context);
+                  widget.awaitReturn(context);
                 },
               ),
               Text('\u00B0$selectSymbol',
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: MyTheme.blue,
                       fontFamily: 'BreeSerif-Regular',
                       fontSize: 70))

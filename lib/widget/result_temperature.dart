@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:temperature_conversi/widget/my_theme.dart';
 
 class ResultTemperature extends StatefulWidget {
-  const ResultTemperature({super.key});
+  const ResultTemperature({Key? key, required this.text}) : super(key: key);
+  final String text;
 
   @override
   State<ResultTemperature> createState() => _ResultTemperatureState();
@@ -66,7 +67,7 @@ class _ResultTemperatureState extends State<ResultTemperature> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('274',
+                Text(widget.text,
                     style: TextStyle(
                         color: MyTheme.white,
                         fontFamily: 'BreeSerif-Regular',

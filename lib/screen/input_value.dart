@@ -14,9 +14,15 @@ class InputValue extends StatefulWidget {
 class _InputValueState extends State<InputValue> {
   final OperationValue operation = OperationValue();
 
-  _onPressed(BuildContext context, String value) {
+  _onPressed(String value) {
     setState(() {
-      operation.value(context, value);
+      operation.tap(value);
+    });
+  }
+
+  _onDone(BuildContext context) {
+    setState(() {
+      operation.done(context);
     });
   }
 
@@ -30,7 +36,10 @@ class _InputValueState extends State<InputValue> {
             Display(
               text: operation.text,
             ),
-            Keyboard(onPress: _onPressed)
+            Keyboard(
+              onPress: _onPressed,
+              onDone: _onDone,
+            )
           ],
         ),
       ),

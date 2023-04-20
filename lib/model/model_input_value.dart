@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
 
-class InputValue {
-  void value(String value) {
+class OperationValue {
+  String text = '0';
+  void value(BuildContext context, String value) {
     switch (value) {
       case "done":
-        done();
+        done(context);
         break;
       default:
-        tap();
+        tap(value);
         break;
     }
   }
+
+  tap(String value) {
+    if (text == '0') {
+      text = value;
+    } else {
+      text += value;
+    }
+  }
+
+  done() {}
 }

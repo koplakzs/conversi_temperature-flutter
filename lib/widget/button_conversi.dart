@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:temperature_conversi/widget/my_theme.dart';
 
 class ButtonConversi extends StatelessWidget {
-  const ButtonConversi({super.key});
+  final void Function() onPressed;
+  const ButtonConversi({Key? key, required this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class ButtonConversi extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: ElevatedButton(
-                onPressed: () => {},
+                onPressed: onPressed,
                 style: ElevatedButton.styleFrom(
                     backgroundColor: MyTheme.blue,
                     shape: const CircleBorder(),

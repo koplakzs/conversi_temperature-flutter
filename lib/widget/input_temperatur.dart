@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:temperature_conversi/screen/input_value.dart';
 import 'package:temperature_conversi/widget/my_theme.dart';
 
 class InputTemperature extends StatefulWidget {
-  final String text;
+  final String text, selectItem, selectSymbol;
   final void Function(BuildContext) awaitReturn;
+  final void Function(String?) onChanged;
   const InputTemperature(
-      {Key? key, required this.text, required this.awaitReturn})
+      {Key? key,
+      required this.text,
+      required this.selectItem,
+      required this.selectSymbol,
+      required this.awaitReturn,
+      required this.onChanged})
       : super(key: key);
 
   @override
@@ -18,49 +21,29 @@ class InputTemperature extends StatefulWidget {
 class _InputTemperatureState extends State<InputTemperature> {
   static const List<String> list = [
     'Celsius',
-    'Fanrenheit',
+    'Fahrenheit',
     'Reamur',
     'Kelvin'
   ];
-
-  String selectItem = 'Celsius';
-  String selectSymbol = 'C';
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
         child: Container(
+      padding: const EdgeInsets.all(20),
       color: MyTheme.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           DropdownButton(
-            value: selectItem,
+            value: widget.selectItem,
             items: list.map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem(
                 value: value,
                 child: Text(value),
               );
             }).toList(),
-            onChanged: (String? newItem) {
-              setState(() {
-                selectItem = newItem!;
-              });
-              switch (selectItem) {
-                case 'Fanrenheit':
-                  selectSymbol = 'F';
-                  break;
-                case 'Reamur':
-                  selectSymbol = 'R';
-                  break;
-                case 'Kelvin':
-                  selectSymbol = 'K';
-                  break;
-                default:
-                  selectSymbol = 'C';
-                  break;
-              }
-            },
+            onChanged: widget.onChanged,
             underline: Container(),
             alignment: Alignment.center,
             icon: Container(),
@@ -79,12 +62,12 @@ class _InputTemperatureState extends State<InputTemperature> {
                     style: const TextStyle(
                         color: MyTheme.blue,
                         fontFamily: 'BreeSerif-Regular',
-                        fontSize: 100)),
+                        fontSize: 80)),
                 onTap: () {
                   widget.awaitReturn(context);
                 },
               ),
-              Text('\u00B0$selectSymbol',
+              Text('\u00B0${widget.selectSymbol}',
                   style: const TextStyle(
                       color: MyTheme.blue,
                       fontFamily: 'BreeSerif-Regular',

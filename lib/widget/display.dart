@@ -14,14 +14,17 @@ class _DisplayState extends State<Display> {
   Widget build(BuildContext context) {
     return Expanded(
         child: Container(
-      color: MyTheme.white,
-      child: Center(
-          child: Text(
-        widget.text,
-        style: const TextStyle(
-            fontFamily: 'BreeSerif-Regular', fontSize: 80, color: MyTheme.blue),
-        textAlign: TextAlign.center,
-      )),
-    ));
+            color: MyTheme.white,
+            child: Center(
+                child: Text(
+              widget.text.length <= 7
+                  ? widget.text
+                  : widget.text.substring(0, 7),
+              style: const TextStyle(
+                  fontFamily: 'BreeSerif-Regular',
+                  fontSize: 80,
+                  color: MyTheme.blue),
+              textAlign: TextAlign.center,
+            ))));
   }
 }
